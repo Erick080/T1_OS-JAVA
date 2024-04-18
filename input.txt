@@ -1,0 +1,64 @@
+ESCALONAMENTO | PRIORIDADE(-1 SE BE) | CHEGADA 
+BE -1 3 
+.code
+  syscall 2
+  store numero 
+loop:
+  sub controle 
+  brzero fim  
+  div controle  
+  add b 
+fim:
+  sub #1 
+  syscall 1
+.endcode
+
+.data
+  numero 0
+  controle 2
+  aux 0
+  b 3
+  a 0
+.enddata
+
+RT 1 6 
+.code
+  sub #2  	#digitar numero 2: acc <-2
+  load numero 
+loop:
+  add controle 
+  brpos fim  
+  div controle  
+  sub b 
+fim:
+  add #1 
+.endcode
+
+.data
+  numero 0
+  controle 2
+  aux 0
+  b 3
+  a 0
+.enddata
+
+RT 0 10 
+.code
+  mult #2  	
+  load numero 
+loop:
+  sub controle 
+  brneg fim  
+  add controle  
+  sub b 
+fim:
+  add #1 
+.endcode
+
+.data
+  numero 1
+  controle 2
+  aux 0
+  b 7
+  a 5
+.enddata
